@@ -25,12 +25,16 @@ def say_hello():
 
 def generate_secret_number():
     """
-    Vygeneruje náhodné 4-ciferné číslo bez duplicitních číslic.
+    Vygeneruje náhodné 4-ciferné číslo bez duplicitních číslic,
+    které nezačíná nulou.
     
     Vrací:
         str: Náhodné 4-ciferné číslo jako řetězec.
     """
-    return ''.join(random.sample('1234567890', 4))
+    number = random.sample("1234567890", 4)
+    while number[0] == "0":
+        number = random.sample("1234567890", 4)
+    return "".join(number)
 
 def check_tip(tip):
     """
